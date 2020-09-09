@@ -1,18 +1,20 @@
-first_number = input("Enter a number: ")
+first_input = input("Enter a number: ")
 operand = input("Enter an operand. Options include +,-,*,/: ")
-second_number = input("Enter another number: ")
-    
+second_input = input("Enter another number: ")
+first_number = float(first_input)
+second_number = float(second_input)
+
 if operand in "+":
-    answer = int(first_number) + int(second_number)
+    answer = first_number + second_number
     print(answer)
 elif operand in "-":
-    answer = int(first_number) - int(second_number)
+    answer = (first_number) - (second_number)
     print(answer)
 elif operand in "*":
-    answer = int(first_number) * int(second_number)
+    answer = (first_number) * (second_number)
     print(answer)
 elif operand in "/":
-    answer = int(first_number) / int(second_number)
+    answer = (first_number) / (second_number)
     print(answer)
 else:
     print("Error")
