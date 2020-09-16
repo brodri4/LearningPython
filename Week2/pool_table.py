@@ -6,8 +6,13 @@ class Table:
         self.start_time = None
         self.end_time = None
         self.status = "Not Occupied"
-    #    if self.start_time != None:
-    #        self.status = "Occupied"
+
+# def create_daily_file():
+#      today = datetime.now()
+#      file_name = f"{today.month}-{today.day}-{today.year}.txt"
+#      with open(file_name,"w") as file_object:
+#         file_object.write(f"Customer data for {today.month}/{today.day}/{today.year}")
+#      print("Daily File Created")
         
 
 def display(list):
@@ -26,7 +31,7 @@ def display(list):
             print(f"{list[i].name} | {list[i].status} |") 
     
 
-
+#create_daily_file()
 tables = []
 for i in range(1,13):
     tables.append(Table(i))
@@ -34,7 +39,7 @@ tables[0].status = "Occupied"
 tables[0].start_time = datetime(2020,9,15,12,22,34)
 while True:
     display(tables)
-    response = input("Select Action| 1 to Check-In| 2 to Check-out| q to Quit: ").lower()
+    response = input("Select Action - 1 to Check-In| 2 to Check-out| q to Quit: ").lower()
     if response == "q":
         break
     if response == "1":
@@ -65,8 +70,17 @@ while True:
                 tables[second_response-1].end_time = datetime.now()
                 total_time = datetime.now() - tables[second_response-1].start_time
                 seconds = total_time.total_seconds()
+                hours = int(seconds/3600)
                 mins = int(seconds/60)
                 cost = mins * .5
+                file_name = f"{datetime.now().month}-{datetime.now().day}-{datetime.now().year}.txt"
+                with open(file_name,"a") as file_object:
+                    file_object.write(f"Pool Table Number: {second_response} \n")
+                    file_object.write(f"Start Time: {tables[second_response-1].start_time.replace(microsecond=0)} \n")
+                    file_object.write(f"End Time: {tables[second_response-1].end_time.replace(microsecond=0)} \n")
+                    file_object.write(f"Total Time: {hours} Hours and {mins % 60} Minutes \n")
+                    file_object.write(f"Cost: {cost} \n")
+                    print()
                 print(f"The Total Is ${cost}")                
                 tables[second_response-1].start_time = None
                 tables[second_response-1].end_time = None
