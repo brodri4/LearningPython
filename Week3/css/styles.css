@@ -1,0 +1,55 @@
+
+body{
+    margin: 0 auto;
+    background-image: url("lightningbolt.jpg");
+    background-size: 130% auto;
+    background-position: 180px -20px;
+    color: white
+}
+
+.border-section{
+    border-style: solid;
+    border-color: red;
+    width:55%;
+    display:flex;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.tab { text-indent:40px }
+
+.gradient-text {
+    background-color: #f3ec78;
+    background-image: linear-gradient( yellow, #788af3, #af4261,#F80404);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+/* Applying Style to an ID */
+#featured-section{
+    background-color: purple;
+}
+
+
+/* find the featured section element and then apply the style to the 
+image tag within the featured-section */
+img{
+    width: 180px;
+    height: auto;
+    padding-right: 10px;
+}
+
+/* Applying style using an element tag */
+
+
+p{
+    color: white;
+    font-size: 18px;
+}
+
+header{
+    
+    font-size: 30px;
+    class="gradient"
+    width: 100%;
+    height: auto;
+}
